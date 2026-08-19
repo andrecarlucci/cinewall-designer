@@ -1,0 +1,158 @@
+{
+  "unitWidth": 172,
+  "depth": 40,
+  "thickness": 1.8,
+  "plinth": 7,
+  "backPanel": true,
+  "finish": "anthracite",
+  "rows": [
+    {
+      "name": "Base cabinets",
+      "height": 50,
+      "cols": [
+        {
+          "w": 83.3,
+          "c": {
+            "type": "door-push",
+            "decor": "none",
+            "tv": 65,
+            "hinge": "bottom",
+            "shelves": 1
+          }
+        },
+        {
+          "w": 83.3,
+          "c": {
+            "type": "door-push",
+            "decor": "none",
+            "tv": 65,
+            "hinge": "bottom",
+            "shelves": 1
+          }
+        }
+      ],
+      "dividers": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "Fireplace",
+      "height": 45,
+      "cols": [
+        {
+          "w": 15.7,
+          "c": {
+            "type": "open",
+            "decor": "none",
+            "tv": 65,
+            "hinge": "left",
+            "faceplate": false,
+            "border": 0
+          }
+        },
+        {
+          "w": 141,
+          "c": {
+            "type": "fireplace",
+            "decor": "none",
+            "tv": 65,
+            "hinge": "left",
+            "faceplate": false
+          }
+        },
+        {
+          "w": 15.3,
+          "c": {
+            "type": "open",
+            "decor": "none",
+            "tv": 65,
+            "hinge": "left",
+            "faceplate": false
+          }
+        }
+      ],
+      "dividers": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "name": "Speakers",
+      "height": 25,
+      "cols": [
+        {
+          "w": 168.4,
+          "c": {
+            "type": "open",
+            "decor": "speaker3",
+            "tv": 65,
+            "setback": 0,
+            "border": 0,
+            "hinge": "left",
+            "faceplate": false
+          }
+        }
+      ],
+      "dividers": [
+        true,
+        true
+      ]
+    },
+    {
+      "name": "Media wall",
+      "height": 100,
+      "cols": [
+        {
+          "w": 168.4,
+          "c": {
+            "type": "tv-panel",
+            "decor": "none",
+            "tv": 65,
+            "tvGap": 2,
+            "hinge": "left",
+            "faceplate": false
+          }
+        }
+      ],
+      "dividers": [
+        true,
+        true
+      ]
+    },
+    {
+      "name": "Display shelves",
+      "height": 28,
+      "cols": [
+        {
+          "w": 83.3,
+          "c": {
+            "type": "door-push",
+            "decor": "books",
+            "tv": 65,
+            "hinge": "left",
+            "shelves": 0
+          }
+        },
+        {
+          "w": 83.3,
+          "c": {
+            "type": "door-push",
+            "decor": "none",
+            "tv": 65,
+            "hinge": "right"
+          }
+        }
+      ],
+      "dividers": [
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "plinthRecess": 0
+}
