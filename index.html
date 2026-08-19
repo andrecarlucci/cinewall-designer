@@ -278,19 +278,26 @@ function migrateDesign(d){
 
 function defaultState(){
   return {
-    unitWidth:320, depth:40, thickness:1.8, plinth:6, plinthRecess:2, backPanel:true, finish:"oak",
-    backFinish:"dark", plinthFinish:"dark",
+    unitWidth:320, depth:40, thickness:1.8, plinth:6, plinthRecess:2, backPanel:true, finish:"anthracite",
+    backFinish:"dark", plinthFinish:"anthracite",
     rows:[ // bottom → top
       {name:"Base cabinets", height:45, cols:[
-        {w:0,c:newCell("drawer")},{w:0,c:newCell("fireplace")},{w:0,c:newCell("drawer")}
-      ]},
-      {name:"Media wall", height:80, cols:[ {w:0,c:newCell("tv")} ]},
+        {w:79,c:newCell("drawer")},
+        {w:155,c:newCell("fireplace")},
+        {w:78.8,c:newCell("drawer")}
+      ], dividers:[true,true,true,true]},
+      {name:"", height:20, cols:[
+        {w:316.4,c:(()=>{const x=newCell("open");x.decor="speaker3";return x})()}
+      ], dividers:[true,true]},
+      {name:"Media wall", height:80, cols:[
+        {w:316.4,c:(()=>{const x=newCell("tv-panel");x.faceplate=true;return x})()}
+      ], dividers:[true,true]},
       {name:"Display shelves", height:35, cols:[
-        {w:0,c:(()=>{const x=newCell("open");x.decor="books";return x})()},
-        {w:0,c:newCell("door")},
-        {w:0,c:(()=>{const x=newCell("open");x.decor="objects";return x})()},
-        {w:0,c:(()=>{const x=newCell("open");x.decor="mixed";return x})()}
-      ]}
+        {w:77.8,c:(()=>{const x=newCell("open");x.decor="books";return x})()},
+        {w:77.8,c:newCell("open")},
+        {w:77.8,c:(()=>{const x=newCell("open");x.decor="objects";return x})()},
+        {w:77.6,c:(()=>{const x=newCell("open");x.decor="mixed";return x})()}
+      ], dividers:[true,true,true,true,true]}
     ]
   };
 }
@@ -305,7 +312,7 @@ function loadSaved(){
   return null;
 }
 let S = loadSaved();
-if(!S){ S=defaultState(); S.rows.forEach((r,i)=>equalizeRow(i,true)); }
+if(!S){ S=defaultState(); }
 let expandedRow = S.rows.length ? S.rows.length-1 : null; // accordion: only one row card open (top row first)
 
 let saveTimer=0;
@@ -664,11 +671,11 @@ controls.addEventListener("click", e=>{
     case "addcol": S.rows[i].cols.push({w:0,c:newCell("open")}); equalizeRow(i,true); break;
     case "delcol": S.rows[i].cols.pop(); equalizeRow(i,true); break;
     case "equalize": equalizeRow(i,true); break;
-    case "reset": S=defaultState(); S.rows.forEach((_,k)=>equalizeRow(k,true)); expandedRow=S.rows.length-1; break;
+    case "reset": S=defaultState(); expandedRow=S.rows.length-1; break;
     case "clearsave":{
       if(!confirm("Delete the saved design from this browser and load the example? Export it as JSON first if you want to keep it.")) return;
       try{ localStorage.removeItem(SAVE_KEY); }catch(e){}
-      S=defaultState(); S.rows.forEach((_,k)=>equalizeRow(k,true)); expandedRow=S.rows.length-1; break;}
+      S=defaultState(); expandedRow=S.rows.length-1; break;}
     case "export": exportJSON(); return;
     case "import": document.getElementById("fileImport").click(); return;
     case "paste": showPasteImport(); return;
