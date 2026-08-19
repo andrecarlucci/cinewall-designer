@@ -412,7 +412,10 @@ function buildCell(c, x, yb, cw, rh, D, t, ri, ci){
     }
   }
   else if(c.type==="fireplace"){
-    const insetW=Math.max(6,cw-2*bd-2), insetH=Math.min(rh-2*bd-2,42);
+    // border only shrinks the opening for the non-faceplate bezel; once face-plated the
+    // cutout is border-independent, matching the elevation/cut-list formula (and the tv-type convention)
+    const fbBd=fp?0:bd;
+    const insetW=Math.max(6,cw-2*fbBd-2), insetH=Math.min(rh-2*fbBd-2,42);
     const fbD=Math.max(6, D-sb-2); // firebox fills the recess depth (1 cm clearance front & back)
     const wall=1.2, bez=2.2;
     const yc=yb+insetH/2+(rh-insetH)/2;
