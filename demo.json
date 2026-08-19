@@ -1,0 +1,184 @@
+{
+  "unitWidth": 320,
+  "depth": 40,
+  "thickness": 1.8,
+  "plinth": 6,
+  "plinthRecess": 2,
+  "backPanel": true,
+  "finish": "anthracite",
+  "backFinish": "dark",
+  "plinthFinish": "anthracite",
+  "rows": [
+    {
+      "name": "Base cabinets",
+      "height": 45,
+      "cols": [
+        {
+          "w": 79,
+          "c": {
+            "type": "drawer",
+            "decor": "none",
+            "tv": 65,
+            "tvGap": 5,
+            "hinge": "left",
+            "setback": 0,
+            "border": 0,
+            "shelves": 0,
+            "faceplate": false
+          }
+        },
+        {
+          "w": 155,
+          "c": {
+            "type": "fireplace",
+            "decor": "none",
+            "tv": 65,
+            "tvGap": 5,
+            "hinge": "left",
+            "setback": 0,
+            "border": 0,
+            "shelves": 0,
+            "faceplate": false
+          }
+        },
+        {
+          "w": 78.8,
+          "c": {
+            "type": "drawer",
+            "decor": "none",
+            "tv": 65,
+            "tvGap": 5,
+            "hinge": "left",
+            "setback": 0,
+            "border": 0,
+            "shelves": 0,
+            "faceplate": false
+          }
+        }
+      ],
+      "dividers": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "name": "",
+      "height": 20,
+      "cols": [
+        {
+          "w": 316.4,
+          "c": {
+            "type": "open",
+            "decor": "speaker3",
+            "tv": 65,
+            "tvGap": 5,
+            "hinge": "left",
+            "setback": 0,
+            "border": 0,
+            "shelves": 0,
+            "faceplate": false
+          }
+        }
+      ],
+      "dividers": [
+        true,
+        true
+      ]
+    },
+    {
+      "name": "Media wall",
+      "height": 80,
+      "cols": [
+        {
+          "w": 316.4,
+          "c": {
+            "type": "tv-panel",
+            "decor": "none",
+            "tv": 65,
+            "tvGap": 5,
+            "hinge": "left",
+            "setback": 0,
+            "border": 0,
+            "shelves": 0,
+            "faceplate": true
+          }
+        }
+      ],
+      "dividers": [
+        true,
+        true
+      ]
+    },
+    {
+      "name": "Display shelves",
+      "height": 35,
+      "cols": [
+        {
+          "w": 77.8,
+          "c": {
+            "type": "open",
+            "decor": "books",
+            "tv": 65,
+            "tvGap": 5,
+            "hinge": "left",
+            "setback": 0,
+            "border": 0,
+            "shelves": 0,
+            "faceplate": false
+          }
+        },
+        {
+          "w": 77.8,
+          "c": {
+            "type": "open",
+            "decor": "none",
+            "tv": 65,
+            "tvGap": 5,
+            "hinge": "left",
+            "setback": 0,
+            "border": 0,
+            "shelves": 0,
+            "faceplate": false
+          }
+        },
+        {
+          "w": 77.8,
+          "c": {
+            "type": "open",
+            "decor": "objects",
+            "tv": 65,
+            "tvGap": 5,
+            "hinge": "left",
+            "setback": 0,
+            "border": 0,
+            "shelves": 0,
+            "faceplate": false
+          }
+        },
+        {
+          "w": 77.6,
+          "c": {
+            "type": "open",
+            "decor": "mixed",
+            "tv": 65,
+            "tvGap": 5,
+            "hinge": "left",
+            "setback": 0,
+            "border": 0,
+            "shelves": 0,
+            "faceplate": false
+          }
+        }
+      ],
+      "dividers": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  ]
+}
