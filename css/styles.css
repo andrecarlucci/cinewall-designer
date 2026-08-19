@@ -95,6 +95,7 @@ button.primary{background:var(--oak);border-color:var(--oak);color:#1a1408;font-
 button.primary:hover{filter:brightness(1.08);color:#1a1408}
 button.tiny{padding:3px 8px;font-size:11px}
 button.danger:hover{border-color:var(--err);color:var(--err)}
+button:disabled{opacity:.4;cursor:default;pointer-events:none}
 .btnrow{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
 
 /* ---------- Main area ---------- */

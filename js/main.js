@@ -24,7 +24,20 @@ document.querySelectorAll("#tabs .tab").forEach(b=>{
   }
   S = loadSaved() || defaultState();
   expandedRow = S.rows.length ? S.rows.length-1 : null;
+  initHistory();
   renderSidebar();
   resize();
   rebuild();
 })();
+
+/* ---------- undo / redo ---------- */
+document.getElementById("btnUndo").addEventListener("click",undo);
+document.getElementById("btnRedo").addEventListener("click",redo);
+window.addEventListener("keydown",e=>{
+  const key=e.key.toLowerCase();
+  if(!(e.ctrlKey||e.metaKey) || (key!=="z"&&key!=="y")) return;
+  const tag=(e.target.tagName||"").toLowerCase();
+  if(tag==="input"||tag==="textarea"||e.target.isContentEditable) return; // let native field undo run
+  e.preventDefault();
+  if(key==="y" || (key==="z"&&e.shiftKey)) redo(); else undo();
+});

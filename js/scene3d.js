@@ -754,6 +754,6 @@ function animate(tms){
 requestAnimationFrame(animate);
 
 let rafRebuild=0;
-function scheduleRebuild(){ cancelAnimationFrame(rafRebuild); rafRebuild=requestAnimationFrame(rebuild); saveState(); }
+function scheduleRebuild(){ cancelAnimationFrame(rafRebuild); rafRebuild=requestAnimationFrame(rebuild); saveState(); scheduleHistory(); }
 document.getElementById("chkTech").addEventListener("change",scheduleRebuild);
 document.getElementById("chkDims").addEventListener("change",scheduleRebuild);

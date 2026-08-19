@@ -111,6 +111,58 @@ function updateSaveStatus(){
     : "Autosave unavailable in this environment — use Export JSON to keep your design.";
 }
 
+/* ---------- undo / redo history ---------- */
+const HISTORY_LIMIT = 100;
+let historyStack = [];
+let historyIndex = -1;
+let historyTimer = 0;
+function initHistory(){
+  historyStack = [JSON.stringify(S)];
+  historyIndex = 0;
+  updateUndoRedoButtons();
+}
+function recordHistory(){ // commit the current S as a new history entry
+  historyTimer = 0;
+  const snap = JSON.stringify(S);
+  if(historyIndex>=0 && historyStack[historyIndex]===snap) return; // nothing actually changed
+  historyStack.length = historyIndex+1; // drop any redo branch
+  historyStack.push(snap);
+  if(historyStack.length>HISTORY_LIMIT) historyStack.shift();
+  historyIndex = historyStack.length-1;
+  updateUndoRedoButtons();
+}
+function scheduleHistory(){ // coalesce bursts (typing, dragging) into one entry after a pause
+  clearTimeout(historyTimer);
+  historyTimer=setTimeout(recordHistory,500);
+}
+function flushHistory(){ // commit a pending burst immediately (used right before undo/redo)
+  if(historyTimer){ clearTimeout(historyTimer); recordHistory(); }
+}
+function undo(){
+  flushHistory();
+  if(historyIndex<=0) return;
+  historyIndex--;
+  restoreHistoryEntry();
+}
+function redo(){
+  flushHistory();
+  if(historyIndex>=historyStack.length-1) return;
+  historyIndex++;
+  restoreHistoryEntry();
+}
+function restoreHistoryEntry(){
+  S = JSON.parse(historyStack[historyIndex]);
+  if(expandedRow!=null && expandedRow>=S.rows.length) expandedRow = S.rows.length?S.rows.length-1:null;
+  renderSidebar();
+  scheduleRebuild();
+  updateUndoRedoButtons();
+}
+function updateUndoRedoButtons(){
+  const bu=document.getElementById("btnUndo"), br=document.getElementById("btnRedo");
+  if(bu) bu.disabled = historyIndex<=0;
+  if(br) br.disabled = historyIndex>=historyStack.length-1;
+}
+
 /* ---------- derived helpers ---------- */
 function totalHeight(){ // plinth + bottom panel + rows + shelves/top
   return S.plinth + S.thickness + S.rows.reduce((a,r)=>a + r.height + S.thickness, 0);
